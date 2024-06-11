@@ -50,7 +50,7 @@ For example, to run the server-gateway service:
 
 bash:
 cd docs
-docker-compose -f docker-compose-gateway.yml up
+docker-compose -f server-gateway.yml up
 
 ### 4. Service Configuration
 
