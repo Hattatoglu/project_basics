@@ -56,7 +56,7 @@ docker-compose -f docker-compose-gateway.yml up
 
 Configuration for each service is located in the respective application.yml or application.properties files.
 
-    Server Config configurations: server-config/src/main/resources/application.yml
+    Server Config configurations: server-config/src/main/resources/application.properties
 	Server Gateway configurations in Server Config: server-config/src/main/resources/microservices/server-gateway.properties
     Server Discovery configurations in Server Config: server-config/src/main/resources/microservices/server-eureka.properties
 	
@@ -79,4 +79,5 @@ If you want to contribute, please send a pull request or open an issue. We welco
 
 This project is licensed under the MIT License. For more details, refer to the LICENSE file.
 
+##
 This project provides a basic structure for a microservice architecture and serves as a starting point for those looking to develop and customize their projects.
