@@ -32,15 +32,15 @@ The main project that includes the following components:
 
 You can build the project from the root directory using the following command:
 
-bash:
-mvn clean install
+	bash:
+	mvn clean install
 
 ### 2. Docker Build
 
 To create Docker images for each service, navigate to the respective directories and run:
 
-bash:
-docker build -t <image-name> .
+	bash:
+	docker build -t <image-name> .
 
 ### 3. Docker Compose
 
@@ -48,9 +48,9 @@ You can run the project using the docker-compose files located under the docs di
 
 For example, to run the server-gateway service:
 
-bash:
-cd docs
-docker-compose -f server-gateway.yml up
+	bash:
+	cd docs
+	docker-compose -f server-gateway.yml up
 
 ### 4. Service Configuration
 
