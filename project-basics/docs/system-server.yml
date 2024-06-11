@@ -1,0 +1,41 @@
+version: '3.3'
+
+services:       
+  server-config:
+    image: server-config
+    ports:
+      - '8888:8888'
+    networks:
+      - network-internal
+
+  server-eureka:
+    image: server-eureka
+    ports:
+      - '8761:8761'
+    networks:
+      - network-internal
+    depends_on:
+      - server-config
+
+  server-gateway:
+    image: server-gateway
+    ports:
+      - '8600:8600'
+    environment:
+      - server.port=8600
+      - eureka.client.serviceUrl.defaultZone=http://127.0.0.1:8761/eureka/ # Tyep your eureka server docker container ip.
+      - eureka.instance.prefer-ip-address=true
+      - eureka.instance.ip-address=127.0.0.1 # Type your microservice docker container ip. (Here, server-gateway ip)
+      - eureka.instance.non-secure-port=8600
+      - eureka.instance.health-check-url-path=/actuator/health
+      - management.endpoints.web.exposure.include=health,info
+      - management.endpoint.health.show-details=always
+    networks:
+      - network-internal
+    depends_on:
+      - server-config
+      - server-eureka
+      
+networks:
+    network-internal:
+      driver: bridge

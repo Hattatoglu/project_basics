@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  server-eureka:
+    image: server-eureka
+    ports:
+      - '8761:8761'
+    networks:
+      - network-internal
+
+networks:
+  network-internal:
+    driver: bridge
